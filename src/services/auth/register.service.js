@@ -2,10 +2,6 @@ import { auth } from "../../firebase/config.firebase";
 import {
     createUserWithEmailAndPassword,
     updateProfile,
-   /* signInWithEmailAndPassword,
-    signOut,
-    signInWithPopup,
-    GoogleAuthProvider,*/
   } from "firebase/auth";
 
 export const registerUser = async (email, password, userName) => {

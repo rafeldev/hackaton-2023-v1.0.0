@@ -1,11 +1,11 @@
 import React from "react";
-import RegisterForm from "../components/RegisterForm";
+import { Header } from "../components/Header";
 
 const Home = () => {
   return (
     <div>
-      Soy el Home - Página de Inicio
-      <RegisterForm />
+      {/* Soy el Home - Página de Inicio */}
+      <Header />
     </div>
   );
 };

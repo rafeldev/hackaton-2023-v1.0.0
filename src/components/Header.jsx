@@ -1,4 +1,5 @@
 import { Avatar, Flex, HStack, Image, Text } from "@chakra-ui/react"
+import { ChevronDownIcon } from '@chakra-ui/icons'
 import Logo from '../assets/logo.jpg'
 
 export const Header = () => {
@@ -16,6 +17,7 @@ export const Header = () => {
                 <Text fontWeight="normal" color="blackAlpha.700">
                     Rick Adalberto
                 </Text>
+                <ChevronDownIcon cursor="pointer" />
             </HStack>
         </Flex>
     )

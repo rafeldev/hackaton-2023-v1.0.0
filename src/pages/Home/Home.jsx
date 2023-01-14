@@ -7,8 +7,6 @@ import Layout from "../../layout";
 const Home = () => {
   return (
     <div>
-      {/* Soy el Home - Página de Inicio */}
-      <Header />
       {/* <RegisterForm /> */}
       <Layout />
     </div>

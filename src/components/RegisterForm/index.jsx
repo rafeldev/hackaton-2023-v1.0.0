@@ -1,5 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Link as LinkRouter } from "react-router-dom";
 import {
   Box,
   Button,
@@ -8,6 +9,7 @@ import {
   InputRightElement,
   Text,
   Divider,
+  Link,
 } from "@chakra-ui/react";
 
 //css
@@ -23,7 +25,6 @@ const RegisterForm = () => {
     control,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
-  console.log(errors, "errores");
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -41,12 +42,20 @@ const RegisterForm = () => {
                 message: "El nombre es obligatorio",
               },
               min: {
-                value: 20,
-                message: "Ingresa un número de 9 dígitos",
+                value: 5,
+                message: "Ingresa un nombre de 5 dígitos",
               },
-              minLength: {
+              minLenght: {
+                value: 5,
+                message: "Ingresa un nombre de 5 dígitos",
+              },
+              max: {
                 value: 20,
-                message: "Ingresa un número de 9 dígitos",
+                message: "Ingresa un nombre de 20 dígitos",
+              },
+              maxLenght: {
+                value: 20,
+                message: "Ingresa un nombre de 20 dígitos",
               },
             }}
             render={({
@@ -58,6 +67,7 @@ const RegisterForm = () => {
                 placeholder="Nombre o apodo"
                 name="nombre"
                 autoComplete="off"
+                type="text"
                 value={value}
                 onBlur={onBlur}
                 onChange={onChange}
@@ -156,20 +166,35 @@ const RegisterForm = () => {
           )}
         </Box>
         <Box pb={4}>
-          <Button w="100%" colorScheme="telegram" type="submit">
-            Confirmar
+          <Button
+            isDisabled={!isValid}
+            w="100%"
+            colorScheme="telegram"
+            type="submit"
+          >
+            Regístrate
           </Button>
         </Box>
         <Divider />
-        <Box pt={4}>
+        {/* <Box pt={4}>
           <Button
             w="100%"
             colorScheme="telegram"
             variant="outline"
             type="submit"
+            as={LinkRouter}
+            to="/"
           >
             Regístrate
           </Button>
+        </Box> */}
+        <Box pt={4}>
+          <Text fontSize="16px" color={"gray.500"}>
+            ¿Ya tienes cuenta?{" "}
+            <Link as={LinkRouter} to="/" color="blue.500">
+              inicia sesión
+            </Link>
+          </Text>
         </Box>
       </form>
     </LoginCard>

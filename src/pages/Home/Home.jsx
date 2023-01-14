@@ -1,12 +1,13 @@
 import React from "react";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header/Header";
 
 const Home = () => {
   return (
     <div>
       {/* Soy el Home - Página de Inicio */}
       <Header />
-    </div>);
+    </div>
+  );
 };
 
 export default Home;

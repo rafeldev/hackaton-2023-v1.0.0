@@ -1,7 +1,12 @@
 import "./App.css";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
-  return <div className="App">Hackaton 2023</div>;
+  return (
+    <div className="App">
+      <AppRouter />
+    </div>
+  );
 }
 
 export default App;

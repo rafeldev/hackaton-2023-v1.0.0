@@ -12,6 +12,7 @@ import {
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import LoginCard from "../../components/components-commos/LoginCard";
+import TemplateLogin from "../../components/components-commos/TemplateLogin";
 
 function SignIn() {
   const [show, setShow] = useState(false);
@@ -27,7 +28,7 @@ function SignIn() {
   };
   return (
     <>
-      <Flex direction="column" align="center" padding="8rem" height="90vh">
+      <TemplateLogin>
         <LoginCard>
           <form
             style={{
@@ -128,7 +129,10 @@ function SignIn() {
             ¿Qué rol tienes? lore
           </Heading> */}
         </LoginCard>
-      </Flex>
+      </TemplateLogin>
+      {/* <Flex direction="column" align="center" padding="8rem" height="90vh"> */}
+
+      {/* </Flex> */}
     </>
   );
 }

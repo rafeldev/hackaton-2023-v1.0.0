@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Divider,
   Flex,
   Heading,
   Input,
@@ -19,7 +20,7 @@ function SignIn() {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -28,7 +29,15 @@ function SignIn() {
     <>
       <Flex direction="column" align="center" padding="8rem" height="90vh">
         <LoginCard>
-          <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
+          <form
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              gap: "17px",
+            }}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             {/* <Flex direction="column" columnGap={4} p={4}> */}
             <Controller
               control={control}
@@ -109,6 +118,10 @@ function SignIn() {
             {/* </Flex> */}
 
             <Button colorScheme="blue">Enviar</Button>
+            <Divider />
+            <Button colorScheme="blue" variant="outline">
+              Regístrate
+            </Button>
           </form>
 
           {/* <Heading as="h2" size="md" noOfLines={1} color="fontColor">

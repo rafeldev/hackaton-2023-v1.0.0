@@ -1,6 +1,7 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Box, Input, Card, CardBody, Stack } from "@chakra-ui/react";
+import LoginCard from "../components-commos/LoginCard";
 
 const RegisterForm = () => {
   const {
@@ -17,8 +18,7 @@ const RegisterForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box boxSize="md">
         <h1>Register</h1>
-        <Card>
-          <CardBody>hola</CardBody>
+        <LoginCard>
           <Stack spacing={3} p={3}>
             <Controller
               control={control}
@@ -55,7 +55,7 @@ const RegisterForm = () => {
             />
             <button type="submit">enviar</button>
           </Stack>
-        </Card>
+        </LoginCard>
       </Box>
     </form>
   );

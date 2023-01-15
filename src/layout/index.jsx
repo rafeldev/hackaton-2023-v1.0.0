@@ -9,11 +9,14 @@ const Layout = ({ children }) => {
   const handleCloseModal = () => {
     setOpenModalNewUrl(false);
   };
+  const handleOpenModal = () => {
+    setOpenModalNewUrl(true);
+  };
   return (
     <div>
       <SubHeader setOpenModalNewUrl={setOpenModalNewUrl} />
       <Flex>
-        <MyLinks />
+        <MyLinks handleOpenModal={handleOpenModal} />
         <Box
           display="flex"
           flexDirection="column"
@@ -22,12 +25,12 @@ const Layout = ({ children }) => {
           w="100%"
           background="gray.50"
         >
+          {children}
           La información de tu URL corta, estará aquí
         </Box>
       </Flex>
       <ModalNewUrl
         openModalNewUrl={openModalNewUrl}
-        setOpenModalNewUrl={setOpenModalNewUrl}
         handleCloseModal={handleCloseModal}
       />
     </div>

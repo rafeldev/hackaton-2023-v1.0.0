@@ -17,11 +17,7 @@ import "./styles.css";
 import UrlModalForm from "../../components/UrlModalForm";
 import { useForm } from "react-hook-form";
 
-const ModalNewUrl = ({
-  openModalNewUrl,
-  setOpenModalNewUrl,
-  handleCloseModal,
-}) => {
+const ModalNewUrl = ({ openModalNewUrl, handleCloseModal }) => {
   const {
     handleSubmit,
     control,

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import MenuHamburguesa from "../../assets/menuHamburguesa.svg";
 
-const MyLinks = ({ children }) => {
+const MyLinks = ({ children, handleOpenModal }) => {
   return (
     <Box
       w={"40%"}
@@ -36,7 +36,9 @@ const MyLinks = ({ children }) => {
           Aún no has creado links cortos, <br />
           añade el primero
         </Text>
-        <Button colorScheme="telegram">Crear una nueva URL corta</Button>
+        <Button colorScheme="telegram" onClick={() => handleOpenModal()}>
+          Crear una nueva URL corta
+        </Button>
       </Box>
 
       {children}

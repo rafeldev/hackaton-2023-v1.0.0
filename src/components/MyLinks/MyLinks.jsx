@@ -17,7 +17,7 @@ const MyLinks = ({ children }) => {
           Tus links acortados
         </Text>
       </Box>
-      <Divider mb="10rem" />
+      <Divider mb="5rem" />
       <Box
         height="100%"
         display="flex"

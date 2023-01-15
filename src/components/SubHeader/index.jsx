@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
-const SubHeader = () => {
+const SubHeader = ({ setOpenModalNewUrl }) => {
   return (
     <Flex
       borderBottom="1px solid"
@@ -15,7 +15,9 @@ const SubHeader = () => {
       <Text fontSize="3xl" as="b">
         Hola, Nombre:
       </Text>
-      <Button colorScheme="telegram">Crear una nueva URL corta</Button>
+      <Button colorScheme="telegram" onClick={() => setOpenModalNewUrl(true)}>
+        Crear una nueva URL corta
+      </Button>
     </Flex>
   );
 };

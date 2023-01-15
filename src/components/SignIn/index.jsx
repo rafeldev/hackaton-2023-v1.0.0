@@ -2,14 +2,11 @@ import {
   Box,
   Button,
   Divider,
-  Flex,
-  Heading,
   Input,
   InputGroup,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
-import { Link as LinkRouter } from "react-router-dom";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import LoginCard from "../components-commos/LoginCard";
@@ -123,7 +120,9 @@ function SignIn({ setIsRegistrer }) {
           )}
           {/* </Flex> */}
 
-          <Button colorScheme="blue">Enviar</Button>
+          <Button colorScheme="blue" isDisabled={!isValid}>
+            Enviar
+          </Button>
           <Divider />
           <Button
             colorScheme="blue"

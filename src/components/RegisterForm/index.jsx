@@ -1,6 +1,5 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Link as LinkRouter } from "react-router-dom";
 import {
   Box,
   Button,
@@ -9,7 +8,6 @@ import {
   InputRightElement,
   Text,
   Divider,
-  Link,
 } from "@chakra-ui/react";
 
 //css
@@ -183,18 +181,6 @@ const RegisterForm = ({ setIsRegistrer }) => {
           </Button>
         </Box>
         <Divider />
-        {/* <Box pt={4}>
-          <Button
-            w="100%"
-            colorScheme="telegram"
-            variant="outline"
-            type="submit"
-            as={LinkRouter}
-            to="/"
-          >
-            Regístrate
-          </Button>
-        </Box> */}
         <Box pt={4} display="flex" justifyContent={"center"} gap={"5px"}>
           <Text fontSize="16px" color={"gray.500"}>
             ¿Ya tienes cuenta?{" "}

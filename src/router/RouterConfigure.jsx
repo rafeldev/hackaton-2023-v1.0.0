@@ -1,6 +1,7 @@
 import Home from "../pages/Home/Home";
+import TemplateLogin from "../pages/Login";
 import Page404 from "../pages/Page404/Page404";
-import SignIn from "../pages/SignIn/SignIn";
+import SignIn from "../components/SignIn";
 
 const rutas = [
   {
@@ -11,7 +12,7 @@ const rutas = [
   {
     path: "/",
     exact: true,
-    page: SignIn,
+    page: TemplateLogin,
   },
   {
     path: "*",

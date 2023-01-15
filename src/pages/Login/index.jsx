@@ -1,7 +1,14 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import RegisterForm from "../../components/RegisterForm";
+import SignIn from "../../components/SignIn";
 
-function TemplateLogin({ children }) {
+function TemplateLogin() {
+  const [isRegistrer, setIsRegistrer] = useState(false);
+  console.log(
+    "🚀 ~ file: index.jsx:8 ~ TemplateLogin ~ isRegistrer",
+    isRegistrer
+  );
   return (
     <Flex
       direction="column"
@@ -21,7 +28,13 @@ function TemplateLogin({ children }) {
             </Text>
           </Box>
         </div>
-        <div>{children}</div>
+        <div>
+          {isRegistrer ? (
+            <RegisterForm setIsRegistrer={setIsRegistrer} />
+          ) : (
+            <SignIn setIsRegistrer={setIsRegistrer} />
+          )}
+        </div>
       </div>
     </Flex>
   );

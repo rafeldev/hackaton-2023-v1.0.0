@@ -17,14 +17,21 @@ import "./index.css";
 
 import LoginCard from "../components-commos/LoginCard";
 
-const RegisterForm = () => {
+const RegisterForm = ({ setIsRegistrer }) => {
   const [show, setShow] = React.useState(false);
   const handleShowPassword = () => setShow(!show);
   const {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm({ mode: "onChange" });
+  } = useForm({
+    defaultValues: {
+      nombre: "",
+      correo: "",
+      contraseña: "",
+    },
+    mode: "onChange",
+  });
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -188,12 +195,16 @@ const RegisterForm = () => {
             Regístrate
           </Button>
         </Box> */}
-        <Box pt={4}>
+        <Box pt={4} display="flex" justifyContent={"center"} gap={"5px"}>
           <Text fontSize="16px" color={"gray.500"}>
             ¿Ya tienes cuenta?{" "}
-            <Link as={LinkRouter} to="/" color="blue.500">
-              inicia sesión
-            </Link>
+          </Text>
+          <Text
+            style={{ cursor: "pointer" }}
+            onClick={() => setIsRegistrer(false)}
+            color="blue.500"
+          >
+            inicia sesión
           </Text>
         </Box>
       </form>

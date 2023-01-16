@@ -1,22 +1,18 @@
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
 import {
   Box,
   Button,
+  Divider,
   Input,
   InputGroup,
   InputRightElement,
   Text,
-  Divider,
 } from "@chakra-ui/react";
-
-//css
-import "./index.css";
-
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import LoginCard from "../components-commos/LoginCard";
 
-const RegisterForm = ({ setIsRegistrer }) => {
-  const [show, setShow] = React.useState(false);
+function SignIn({ setIsRegistrer }) {
+  const [show, setShow] = useState(false);
   const handleShowPassword = () => setShow(!show);
   const {
     handleSubmit,
@@ -24,72 +20,28 @@ const RegisterForm = ({ setIsRegistrer }) => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      nombre: "",
       correo: "",
       contraseña: "",
     },
     mode: "onChange",
   });
+
   const onSubmit = (data) => {
     console.log(data);
   };
-
   return (
-    <LoginCard>
-      <form className="Form-register" onSubmit={handleSubmit(onSubmit)}>
-        <Box pb={4}>
-          <Controller
-            control={control}
-            name="nombre"
-            rules={{
-              required: {
-                value: true,
-                message: "El nombre es obligatorio",
-              },
-              min: {
-                value: 5,
-                message: "Ingresa un nombre de 5 dígitos",
-              },
-              minLenght: {
-                value: 5,
-                message: "Ingresa un nombre de 5 dígitos",
-              },
-              max: {
-                value: 20,
-                message: "Ingresa un nombre de 20 dígitos",
-              },
-              maxLenght: {
-                value: 20,
-                message: "Ingresa un nombre de 20 dígitos",
-              },
-            }}
-            render={({
-              field: { value, onChange, onBlur },
-              fieldState: { error },
-            }) => (
-              <Input
-                size="md"
-                placeholder="Nombre o apodo"
-                name="nombre"
-                autoComplete="off"
-                type="text"
-                value={value}
-                onBlur={onBlur}
-                onChange={onChange}
-                isInvalid={error?.ref.name === "nombre"}
-              />
-            )}
-          />
-
-          {errors.nombre && (
-            <Box display="flex" alignItems="center">
-              <Text fontSize="xs" color={"red"}>
-                {errors.nombre.message}
-              </Text>
-            </Box>
-          )}
-        </Box>
-        <Box pb={4}>
+    <>
+      <LoginCard>
+        <form
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "17px",
+          }}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          {/* <Flex direction="column" columnGap={4} p={4}> */}
           <Controller
             control={control}
             name="correo"
@@ -109,7 +61,7 @@ const RegisterForm = ({ setIsRegistrer }) => {
             }) => (
               <Input
                 size="md"
-                placeholder="Correo"
+                placeholder="correo"
                 name="correo"
                 autoComplete="off"
                 value={value}
@@ -120,15 +72,12 @@ const RegisterForm = ({ setIsRegistrer }) => {
             )}
           />
           {errors.correo && (
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" pb={4}>
               <Text fontSize="xs" color={"red"}>
                 {errors.correo.message}
               </Text>
             </Box>
           )}
-        </Box>
-
-        <Box pb={4}>
           <Controller
             control={control}
             name="contraseña"
@@ -163,39 +112,29 @@ const RegisterForm = ({ setIsRegistrer }) => {
             )}
           />
           {errors.contraseña && (
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" pb={4}>
               <Text fontSize="xs" color={"red"}>
                 {errors.contraseña.message}
               </Text>
             </Box>
           )}
-        </Box>
-        <Box pb={4}>
+          {/* </Flex> */}
+
+          <Button colorScheme="blue" isDisabled={!isValid}>
+            Enviar
+          </Button>
+          <Divider />
           <Button
-            isDisabled={!isValid}
-            w="100%"
-            colorScheme="telegram"
-            type="submit"
+            colorScheme="blue"
+            variant="outline"
+            onClick={() => setIsRegistrer(true)}
           >
             Regístrate
           </Button>
-        </Box>
-        <Divider />
-        <Box pt={4} display="flex" justifyContent={"center"} gap={"5px"}>
-          <Text fontSize="16px" color={"gray.500"}>
-            ¿Ya tienes cuenta?{" "}
-          </Text>
-          <Text
-            style={{ cursor: "pointer" }}
-            onClick={() => setIsRegistrer(false)}
-            color="blue.500"
-          >
-            inicia sesión
-          </Text>
-        </Box>
-      </form>
-    </LoginCard>
+        </form>
+      </LoginCard>
+    </>
   );
-};
+}
 
-export default RegisterForm;
+export default SignIn;

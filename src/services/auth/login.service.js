@@ -3,10 +3,10 @@ import {
   } from "firebase/auth";
 import { auth } from "../../firebase/config.firebase";
 
-export const loginUserEmailPassword = async(email, password) => {
+export const loginUserEmailPassword = async(correo, contraseña) => {
    
       try {
-        const { user } = await signInWithEmailAndPassword(auth, email, password);
+        const { user } = await signInWithEmailAndPassword(auth, correo, contraseña);
         
         return {
             uid: user.uid,

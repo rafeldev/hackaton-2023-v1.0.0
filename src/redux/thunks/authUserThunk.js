@@ -19,10 +19,11 @@ export const RegisterUserThunk = (data) => {
   };
 };
 
-export const LoginUserThunk = (email, password) => {
+export const LoginUserThunk = (data) => {
     return async (dispatch) => {
+      const {correo, contraseña} = data
         try {
-            const user = await loginUserEmailPassword(email,password)
+            const user = await loginUserEmailPassword(correo,contraseña)
 
             dispatch(
                 setUser(user)

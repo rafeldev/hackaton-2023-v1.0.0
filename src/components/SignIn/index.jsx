@@ -10,10 +10,13 @@ import {
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import LoginCard from "../components-commos/LoginCard";
+import { useDispatch } from "react-redux";
+import { LoginUserThunk } from "../../redux/thunks/authUserThunk";
 
 function SignIn({ setIsRegistrer }) {
   const [show, setShow] = useState(false);
   const handleShowPassword = () => setShow(!show);
+  const dispatch = useDispatch()
   const {
     handleSubmit,
     control,
@@ -28,6 +31,7 @@ function SignIn({ setIsRegistrer }) {
 
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(LoginUserThunk(data))
   };
   return (
     <>

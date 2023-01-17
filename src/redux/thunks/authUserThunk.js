@@ -2,10 +2,13 @@ import { loginUserEmailPassword } from "../../services/auth/login.service";
 import { registerUser } from "../../services/auth/register.service";
 import { setUser } from "../slices/userSlice";
 
-export const RegisterUserThunk = (email, password, userName) => {
+export const RegisterUserThunk = (data) => {
   return async (dispatch) => {
+    const {correo, contraseña, nombre} = data;
     try {
-      const newUser = await registerUser(email, password, userName);
+      const newUser = await registerUser(correo, contraseña, nombre);
+
+      console.log(newUser)
 
       dispatch(
         setUser(newUser)

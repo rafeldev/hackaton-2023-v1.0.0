@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Divider, Image, Text } from "@chakra-ui/react";
 import MenuHamburguesa from "../../assets/menuHamburguesa.svg";
 
 const MyLinks = ({ children, handleOpenModal }) => {

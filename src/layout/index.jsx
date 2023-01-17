@@ -25,8 +25,7 @@ const Layout = ({ children }) => {
           w="100%"
           background="gray.50"
         >
-          {children}
-          La información de tu URL corta, estará aquí
+          {children ? children : "La información de tu URL corta, estará aquí"}
         </Box>
       </Flex>
       <ModalNewUrl

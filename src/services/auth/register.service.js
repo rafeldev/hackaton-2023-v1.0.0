@@ -4,18 +4,18 @@ import {
     updateProfile,
   } from "firebase/auth";
 
-export const registerUser = async (email, password, userName) => {
+export const registerUser = async (correo, contraseña, nombre) => {
       try {
         const { user } = await createUserWithEmailAndPassword  (
           auth,
-          email,
-          password
+          correo,
+          contraseña
         );
         
         //en firebase por defecto sale el nombre de usuario como null, esta linea actualiza 
         //el nombre de usuario en la base de datos
          await updateProfile(user, {
-          displayName: userName,
+          displayName: nombre,
         });
 
         return {

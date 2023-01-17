@@ -14,10 +14,14 @@ import {
 import "./index.css";
 
 import LoginCard from "../components-commos/LoginCard";
+import { useDispatch } from "react-redux";
+import { RegisterUserThunk } from "../../redux/thunks/authUserThunk";
+import { registerUser } from "../../services/auth/register.service";
 
 const RegisterForm = ({ setIsRegistrer }) => {
   const [show, setShow] = React.useState(false);
   const handleShowPassword = () => setShow(!show);
+  const dispatch = useDispatch()
   const {
     handleSubmit,
     control,
@@ -31,9 +35,8 @@ const RegisterForm = ({ setIsRegistrer }) => {
     mode: "onChange",
   });
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(RegisterUserThunk(data))
   };
-
   return (
     <LoginCard>
       <form className="Form-register" onSubmit={handleSubmit(onSubmit)}>

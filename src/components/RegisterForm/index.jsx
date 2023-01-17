@@ -16,7 +16,6 @@ import "./index.css";
 import LoginCard from "../components-commos/LoginCard";
 import { useDispatch } from "react-redux";
 import { RegisterUserThunk } from "../../redux/thunks/authUserThunk";
-import { registerUser } from "../../services/auth/register.service";
 
 const RegisterForm = ({ setIsRegistrer }) => {
   const [show, setShow] = React.useState(false);

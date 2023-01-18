@@ -4,32 +4,32 @@ import { setUser } from "../slices/userSlice";
 
 export const RegisterUserThunk = (data) => {
   return async (dispatch) => {
-    const {correo, contraseña, nombre} = data;
-    try {
-      const newUser = await registerUser(correo, contraseña, nombre);
+    const { correo, contraseña, nombre } = data;
+    const newUser = await registerUser(correo, contraseña, nombre);
 
-      console.log(newUser)
+    dispatch(
+      setUser(newUser)
+    );
 
-      dispatch(
-        setUser(newUser)
-      );
-    } catch (err) {
-      console.error(err);
+    if (newUser.ok === false) {
+      console.log(newUser.errorMessage);
     }
-  };
+
+  }
 };
 
 export const LoginUserThunk = (data) => {
-    return async (dispatch) => {
-      const {correo, contraseña} = data
-        try {
-            const user = await loginUserEmailPassword(correo,contraseña)
+  return async (dispatch) => {
+    const { correo, contraseña } = data
 
-            dispatch(
-                setUser(user)
-            );
-        } catch (error) {
-            console.log(error);
-        }
+      const user = await loginUserEmailPassword(correo, contraseña)
+
+      dispatch(
+        setUser(user)
+      );
+
+      if (user.ok === false) {
+        console.log(user.errorMessage);
+      }
     }
 }

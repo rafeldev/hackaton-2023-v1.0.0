@@ -14,7 +14,14 @@ export const loginUserEmailPassword = async(correo, contraseña) => {
         }
   
       } catch (error) {
-        throw new Error(error.message)
+
+        if (error.message === 'Firebase: Error (auth/user-not-found).') {
+          return {
+              ok: false,
+              errorMessage: 'Usuario no existente.'
+          }
+      }
+
       }
     };
   

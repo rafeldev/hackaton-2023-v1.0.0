@@ -20,7 +20,7 @@ import { RegisterUserThunk } from "../../redux/thunks/authUserThunk";
 const RegisterForm = ({ setIsRegistrer }) => {
   const [show, setShow] = React.useState(false);
   const handleShowPassword = () => setShow(!show);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     handleSubmit,
     control,
@@ -34,7 +34,7 @@ const RegisterForm = ({ setIsRegistrer }) => {
     mode: "onChange",
   });
   const onSubmit = (data) => {
-    dispatch(RegisterUserThunk(data))
+    dispatch(RegisterUserThunk(data));
   };
   return (
     <LoginCard>

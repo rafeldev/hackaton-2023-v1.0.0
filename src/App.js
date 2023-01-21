@@ -1,12 +1,16 @@
+import { Provider } from "react-redux";
 import "./App.css";
 import { Header } from "./components/Header/Header";
+import { store } from "./redux/store";
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <AppRouter />
+      <Provider store={store}>
+        <Header />
+        <AppRouter />
+      </Provider>
     </div>
   );
 }

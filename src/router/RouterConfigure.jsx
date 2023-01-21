@@ -10,11 +10,6 @@ const rutas = [
     page: Home,
   },
   {
-    path: "/",
-    exact: true,
-    page: TemplateLogin,
-  },
-  {
     path: "*",
     page: Page404,
   },

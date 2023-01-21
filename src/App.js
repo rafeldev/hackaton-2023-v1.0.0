@@ -1,16 +1,17 @@
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
 import "./App.css";
 import { Header } from "./components/Header/Header";
-import { store } from "./redux/store";
+import SpinnerLoading from "./components/Spinner";
+import { loadingSelector } from "./redux/slices/loadingSlice";
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
+  const isLoading = useSelector(loadingSelector);
   return (
     <div className="App">
-      <Provider store={store}>
-        <Header />
-        <AppRouter />
-      </Provider>
+      {isLoading && <SpinnerLoading />}
+      <Header />
+      <AppRouter />
     </div>
   );
 }

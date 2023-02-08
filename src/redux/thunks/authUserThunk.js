@@ -7,29 +7,25 @@ export const RegisterUserThunk = (data) => {
     const { correo, contraseña, nombre } = data;
     const newUser = await registerUser(correo, contraseña, nombre);
 
-    dispatch(
-      setUser(newUser)
-    );
+    dispatch(setUser(newUser));
 
     if (newUser.ok === false) {
       console.log(newUser.errorMessage);
     }
-
-  }
+  };
 };
 
 export const LoginUserThunk = (data) => {
   return async (dispatch) => {
-    const { correo, contraseña } = data
+    const { correo, contraseña } = data;
 
-      const user = await loginUserEmailPassword(correo, contraseña)
+    const user = await loginUserEmailPassword(correo, contraseña);
 
-      dispatch(
-        setUser(user)
-      );
+    dispatch(setUser(user));
+    localStorage.setItem("token", user.uid);
 
-      if (user.ok === false) {
-        console.log(user.errorMessage);
-      }
+    if (user.ok === false) {
+      console.log(user.errorMessage);
     }
-}
+  };
+};

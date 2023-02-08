@@ -16,7 +16,7 @@ import { LoginUserThunk } from "../../redux/thunks/authUserThunk";
 function SignIn({ setIsRegistrer }) {
   const [show, setShow] = useState(false);
   const handleShowPassword = () => setShow(!show);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     handleSubmit,
     control,
@@ -31,7 +31,7 @@ function SignIn({ setIsRegistrer }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    dispatch(LoginUserThunk(data))
+    dispatch(LoginUserThunk(data));
   };
   return (
     <>
@@ -124,7 +124,7 @@ function SignIn({ setIsRegistrer }) {
           )}
           {/* </Flex> */}
 
-          <Button colorScheme="blue" isDisabled={!isValid}>
+          <Button colorScheme="blue" isDisabled={!isValid} type="submit">
             Enviar
           </Button>
           <Divider />

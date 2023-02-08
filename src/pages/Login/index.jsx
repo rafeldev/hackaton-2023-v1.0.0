@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RegisterForm from "../../components/RegisterForm";
 import SignIn from "../../components/SignIn";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function TemplateLogin() {
   const [isRegistrer, setIsRegistrer] = useState(false);
@@ -9,6 +11,15 @@ function TemplateLogin() {
     "🚀 ~ file: index.jsx:8 ~ TemplateLogin ~ isRegistrer",
     isRegistrer
   );
+  const history = useHistory();
+  const isAuth = useSelector((state) => state.auth.uid);
+
+  useEffect(() => {
+    if (isAuth !== null) {
+      window.location.href = "/home";
+    }
+  }, [isAuth, history]);
+
   return (
     <Flex
       direction="column"
